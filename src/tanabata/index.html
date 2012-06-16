@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tanabata</title>
+    </head>
+    <body>
+        <h1><a href="/">Tanabata</a></h1>
+        <form action="/" method="post">
+            <p>What do you wish?</p>
+            <div>
+                <label for="id">name:</label>
+                <input type="text" name="id" />
+            </div>
+            <div>
+                <label for="wish">wish:</label>
+                <input type="text" name="wish" />
+            </div>
+            <div>
+                <input type="submit" name="ok" />
+            </div>
+        </form>
+        <ul>
+            <li th:each="wish : ${wishs}">
+                <a href="#" th:href="'/' + ${wish.id}"><span th:text="${wish.id}">name</span></a>
+                <span th:text="${wish.wish}">text</span>
+            </li>
+        </ul>
+    </body>
+</html>
+
